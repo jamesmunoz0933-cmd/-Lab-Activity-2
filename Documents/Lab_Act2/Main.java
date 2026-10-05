@@ -2,34 +2,46 @@ public class Main
 {
    public static void main(String[] args)
    {
-      Vehicle v1 = new Vehicle();
-      v1.brand = "Isuzu";
-      v1.model = "VehiCROSS";
-      v1.year = 1997;
-      
-      v1.displayInfo();
-      System.out.println("Age: " + v1.calculateAge());
-      System.out.println("Vintage: " + v1.isVintage());
+      Vehicle v1 = new Vehicle("Isuzu", "VehiCROSS", 1997);
+      Vehicle v2 = new Vehicle("Daihatsu", "Copen", 2004);
+      Vehicle v3 = new Vehicle("Suzuki", "Cappuccino", 1995);
+
+      Vehicle[] vehicles = { v1, v2, v3 };
+
+      System.out.println("=== Original methods on all vehicles ===");
+      for (Vehicle v : vehicles) {
+         v.displayInfo();
+         System.out.println("Age: " + v.calculateAge());
+         System.out.println("Vintage: " + v.isVintage());
+         System.out.println();
+      }
+
+      System.out.println("=== Getters ===");
+      for (Vehicle v : vehicles) {
+         System.out.println("Brand: " + v.getBrand()
+               + ", Model: " + v.getModel()
+               + ", Year: " + v.getYear());
+      }
       System.out.println();
 
-      Vehicle v2 = new Vehicle();
-      v2.brand = "Daihatsu";
-      v2.model = "Copen";
-      v2.year = 2004;
-      
-      v2.displayInfo();
-      System.out.println("Age: " + v2.calculateAge());
-      System.out.println("Vintage: " + v2.isVintage());
+      System.out.println("=== setYear tests on vehicle 1 ===");
+      System.out.println("setYear(2000) -> " + v1.setYear(2000)
+            + "; year is " + v1.getYear()
+            + "; age " + v1.calculateAge()
+            + "; vintage " + v1.isVintage());
+
+      System.out.println("setYear(1885) -> " + v1.setYear(1885)
+            + "; year remains " + v1.getYear());
+
+      System.out.println("setYear(2027) -> " + v1.setYear(2027)
+            + "; year remains " + v1.getYear());
       System.out.println();
 
-      Vehicle v3 = new Vehicle();
-      v3.brand = "Suzuki";
-      v3.model = "Cappuccino";
-      v3.year = 1995;
-      
-      v3.displayInfo();
-      System.out.println("Age: " + v3.calculateAge());
-      System.out.println("Vintage: " + v3.isVintage());
-      System.out.println();
+      System.out.println("=== Constructor invalid year tests ===");
+      Vehicle bad1 = new Vehicle("Test", "OldInvalid", 1885);
+      System.out.println("New vehicle with year 1885 -> initial year is " + bad1.getYear());
+
+      Vehicle bad2 = new Vehicle("Test", "NewInvalid", 2027);
+      System.out.println("New vehicle with year 2027 -> initial year is " + bad2.getYear());
    }
 }
