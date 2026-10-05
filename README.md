@@ -1,10 +1,14 @@
 # Lab 4 – Encapsulation (Section 2E)
 
-**Name:** James Munoz
-**Section:** BSIT 2E
+**Name:** James Munoz  
+**Section:** BSIT 2E  
+**Lab Act:** 4
+
+---
 
 ## Console Output
 
+```
 Original methods on all vehicles
 Isuzu, VehiCROSS, 1997
 Age: 29
@@ -31,3 +35,4 @@ setYear(2027) -> false; year remains 2000
 Constructor invalid year tests
 New vehicle with year 1885 -> initial year is 2026
 New vehicle with year 2027 -> initial year is 2026
+```
