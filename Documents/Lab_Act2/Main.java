@@ -8,7 +8,7 @@ public class Main
 
       Vehicle[] vehicles = { v1, v2, v3 };
 
-      System.out.println("=== Original methods on all vehicles ===");
+      System.out.println("Original methods on all vehicles");
       for (Vehicle v : vehicles) {
          v.displayInfo();
          System.out.println("Age: " + v.calculateAge());
@@ -16,7 +16,7 @@ public class Main
          System.out.println();
       }
 
-      System.out.println("=== Getters ===");
+      System.out.println("Getters");
       for (Vehicle v : vehicles) {
          System.out.println("Brand: " + v.getBrand()
                + ", Model: " + v.getModel()
@@ -24,7 +24,7 @@ public class Main
       }
       System.out.println();
 
-      System.out.println("=== setYear tests on vehicle 1 ===");
+      System.out.println("setYear tests on vehicle 1");
       System.out.println("setYear(2000) -> " + v1.setYear(2000)
             + "; year is " + v1.getYear()
             + "; age " + v1.calculateAge()
@@ -37,7 +37,7 @@ public class Main
             + "; year remains " + v1.getYear());
       System.out.println();
 
-      System.out.println("=== Constructor invalid year tests ===");
+      System.out.println("Constructor invalid year tests");
       Vehicle bad1 = new Vehicle("Test", "OldInvalid", 1885);
       System.out.println("New vehicle with year 1885 -> initial year is " + bad1.getYear());
 
