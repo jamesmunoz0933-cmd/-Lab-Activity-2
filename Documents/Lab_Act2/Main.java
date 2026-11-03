@@ -1,35 +1,53 @@
-public class Main
-{
-   public static void main(String[] args)
-   {
-      Vehicle v1 = new Vehicle();
-      v1.brand = "Isuzu";
-      v1.model = "VehiCROSS";
-      v1.year = 1997;
-      
-      v1.displayInfo();
-      System.out.println("Age: " + v1.calculateAge());
-      System.out.println("Vintage: " + v1.isVintage());
-      System.out.println();
-
-      Vehicle v2 = new Vehicle();
-      v2.brand = "Daihatsu";
-      v2.model = "Copen";
-      v2.year = 2004;
-      
-      v2.displayInfo();
-      System.out.println("Age: " + v2.calculateAge());
-      System.out.println("Vintage: " + v2.isVintage());
-      System.out.println();
-
-      Vehicle v3 = new Vehicle();
-      v3.brand = "Suzuki";
-      v3.model = "Cappuccino";
-      v3.year = 1995;
-      
-      v3.displayInfo();
-      System.out.println("Age: " + v3.calculateAge());
-      System.out.println("Vintage: " + v3.isVintage());
-      System.out.println();
+public class Main {
+   public static void printDetails(Vehicle vehicle) {
+   vehicle.displayInfo();
    }
+      public static void printAction (Vehicle vehicle) {
+         vehicle.moveForward();
+         vehicle.moveBackward();
+         vehicle.moveLeft();
+         vehicle.moveRight();
+      }
+      
+   public static void main(String[] args) {
+   
+   Vehicle vehicle = new Car("Isuzu", "VehiCROSS", 2024, 4);
+      System.out.println();
+      vehicle.displayInfo();
+  
+   vehicle = new Motorcycle("Daihatsu", "Copen", 2024, "Manual");
+      System.out.println();
+      vehicle.displayInfo();
+        
+   vehicle = new Truck("Suzuki", "Cappuccino", 2024, 4);
+      System.out.println();
+      vehicle.displayInfo();
+     
+     System.out.println("\n=== 2. Method Parameter ===");
+      Car car = new Car("Mazda", "MX-5 Miata", 2026, 4);
+      Motorcycle motor = new Motorcycle("Yamaha", "MT-07", 2026, "Manual");
+      Truck truck = new Truck("Chevrolet", "Silverado 1500", 2026, 4);
+      
+      printDetails(car);
+      System.out.println();
+      printDetails(motor);
+      System.out.println();
+      printDetails(truck);
+      
+      System.out.println("\n=== 3. Polymorphic Array ===");
+      
+      Vehicle[] vehicles = {
+         new Car("Mazda", "MX-5 Miata", 2026, 4),
+         new Motorcycle("Yamaha", "MT-07", 2026, "Manual"),
+         new Truck("Chevrolet", "Silverado 1500", 2026, 4)
+      };
+      
+      for(Vehicle currentVehicle : vehicles) {
+         printDetails(currentVehicle);
+         printAction(currentVehicle);
+         System.out.println();
+      }
+   }
+
+
 }
