@@ -1,29 +1,36 @@
-public class Main {
+ public class Main {
    public static void printDetails(Vehicle vehicle) {
-   vehicle.displayInfo();
+      vehicle.displayInfo();
    }
-      public static void printAction (Vehicle vehicle) {
-         vehicle.moveForward();
-         vehicle.moveBackward();
-         vehicle.moveLeft();
-         vehicle.moveRight();
-      }
+   
+   public static void printAction (Vehicle vehicle) {
+      vehicle.moveForward();
+      vehicle.moveBackward();
+      vehicle.moveLeft();
+      vehicle.moveRight();
+   }
+
+    
+   public static void performService(Serviceable item) {
+      item.service();
+   }
       
    public static void main(String[] args) {
    
-   Vehicle vehicle = new Car("Isuzu", "VehiCROSS", 2024, 4);
+      
+      Vehicle vehicle = new Car("Isuzu", "VehiCROSS", 2024, 4);
       System.out.println();
       vehicle.displayInfo();
   
-   vehicle = new Motorcycle("Daihatsu", "Copen", 2024, "Manual");
+      vehicle = new Motorcycle("Daihatsu", "Copen", 2024, "Manual");
       System.out.println();
       vehicle.displayInfo();
         
-   vehicle = new Truck("Suzuki", "Cappuccino", 2024, 4);
+      vehicle = new Truck("Suzuki", "Cappuccino", 2024, 4);
       System.out.println();
       vehicle.displayInfo();
      
-     System.out.println("\n=== 2. Method Parameter ===");
+      System.out.println("\n=== 2. Method Parameter ===");
       Car car = new Car("Mazda", "MX-5 Miata", 2026, 4);
       Motorcycle motor = new Motorcycle("Yamaha", "MT-07", 2026, "Manual");
       Truck truck = new Truck("Chevrolet", "Silverado 1500", 2026, 4);
@@ -47,7 +54,18 @@ public class Main {
          printAction(currentVehicle);
          System.out.println();
       }
+
+      
+      System.out.println("=== 4. Interface Array ===");
+      
+      Printer printer = new Printer();
+
+      
+      Serviceable[] serviceItems = { car, motor, truck, printer };
+      
+      
+      for (Serviceable item : serviceItems) {
+         performService(item);
+      }
    }
-
-
 }
